@@ -1,0 +1,44 @@
+general:
+  label: 基本设置
+  items:
+    icp:
+      name: icp
+      label: ICP 备案号
+      type: text
+      default: ""
+      placeholder: "请填写 ICP 备案号信息"
+      description: "ICP 备案信息将展示在页脚中，不填不展示"
+    police:
+      name: police
+      label: 公网备案号
+      type: text
+      default: ""
+      placeholder: "请填写公网安备号信息"
+      description: "公网安备信息将展示在页脚中，不填不展示"
+    site_notice:
+      name: site_notice
+      label: 网站公告
+      type: textarea
+      placeholder: 请输入公告信息
+      description: "网站公告信息，将展示在页面右侧，尽量简洁明了，不填不展示该模块"
+
+
+theme:
+  label: 主题相关
+  items:
+    theme_mode:
+      name: theme_mode
+      label: 主题模式
+      type: select
+      data-type: text
+      default: user
+      description: "设置博客的主题模式（缤纷/白昼/夜莺/自定义），默认为缤纷模式"
+      options:
+        - value: colorful
+          label: 缤纷
+        - value: daylight
+          label: 白昼
+        - value: nightingale
+          label: 夜莺
+        - value: custom
+          label: 自定义
