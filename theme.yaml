@@ -1,0 +1,11 @@
+id: hexwars_spells_quarter
+name: Spells Quarter
+author:
+  name: hexWars
+  website: https://sehnsucht.top
+description: Halo Terminal Styled Theme
+logo: null
+website: https://github.com/halo-dev/ospp-theme
+repo: https://github.com/halo-dev/ospp-theme
+version: 0.0.1
+require: 1.5.0
