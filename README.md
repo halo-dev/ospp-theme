@@ -20,10 +20,6 @@
 - [ ] 自定义 JS/CSS
 - [ ] 自定义命令
 
-# 📈 项目状态
-
-![Alt](https://repobeats.axiom.co/api/embed/9cd13a568a155cddd5093c39893c25837ca20f92.svg "Repobeats analytics image")
-
 # 🤔 常见问题
 
 
