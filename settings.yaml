@@ -51,7 +51,7 @@ command:
       name: help_setting
       label: help显示
       type: text
-      default: "[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/><br/>Besides, there are some hidden commands, try to find them!"
+      default: "[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>ls<br/>clear<br/>help<br/><br/>Besides, there are some hidden commands, try to find them!"
       description: '自定义help命令的输出,注意可以使用html的标签'
     ls_setting:
       name: ls_setting
