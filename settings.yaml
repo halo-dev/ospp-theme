@@ -62,6 +62,8 @@ command:
       options:
         - value: "post"
           label: 文章
+        - value: "menu"
+          label: 菜单
         # - value: "categories"
         #   label: 分类
         # - value: "tags"

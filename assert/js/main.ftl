@@ -52,6 +52,16 @@ let mainFunc = (input, position) => {
             <#list posts.content as post>
                 out += "<a href=${post.fullPath!}>${post.title!}</a> "
             </#list>
+          }  else if (tmp == "menu") {
+            var arr = new Array()
+            let i = 0
+            <#list menus as menu>
+                arr[i] = "<a href=${menu.url!} target=${menu.target!}>${menu.name!}</a> "
+                i ++;
+            </#list>
+            for (te=i-1; te>=0; te--) {
+                out += arr[te];
+            }
           } else {
             alert("输入错误")
           }
