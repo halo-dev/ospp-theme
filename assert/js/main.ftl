@@ -40,7 +40,7 @@ let mainFunc = (input, position) => {
         case 'hi':
         case 'hey':
         case 'hello':
-          e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + todo 设置 + '<br/>')
+          e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + 'todo 设置' + '<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'clear':
@@ -72,6 +72,7 @@ let mainFunc = (input, position) => {
           break
         case 'test':
           e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + '666' + '<br/>')
+          e_html.animate({ scrollTop: $(document).height() }, 0)
           window.location.href='http://baidu.com';
           // e_html.animate({ scrollTop: $(document).height() }, 0)
           // let webviewUrl = 'https://www.baidu.com';
