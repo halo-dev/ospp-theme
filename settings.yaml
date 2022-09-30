@@ -68,3 +68,19 @@ command:
         #   label: 分类
         # - value: "tags"
         #   label: 标签
+
+style:
+  label: 样式美化
+  items:
+    initStr_setting:
+      name: initStr_setting
+      label: help显示
+      type: text
+      default: "
+      [You] Random theme '/Halo/themes/Spells-Quarter-Theme' loaded...<br/><br/>
+      Hi, I'm YourName. Here is my Blog. Welcome to YourBlogName!
+      Try to find more information about me!<br/><br/>
+      'help' to display information about builtin commands.
+      Have fun ^_^
+      "
+      description: '登录页面上面的字符'
