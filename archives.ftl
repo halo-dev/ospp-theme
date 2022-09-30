@@ -10,8 +10,17 @@
 
 <br/>
 
+<span class="string-block">文章名</span>
+<span class="string-block">创建事件</span>
+<span class="string-block">修改时间</span>
+<br/><br/>
+
 <#list posts.content as post>
-    <a href="${post.fullPath!}">${post.title!}</a><br/>
+    <span class="string-block"><a href="${post.fullPath!}">${post.title!}</a></span>
+    <span class="string-block">${post.createTime!}</span>
+    <span class="string-block">${post.editTime!}</span>
+    <br/>
+    <br/>
 </#list>
 
 
