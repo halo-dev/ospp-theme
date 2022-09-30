@@ -140,7 +140,7 @@ body {
     position:fixed;
     bottom: 0px;
     opacity: 1.0;
-    background-color: #000;
+    background-color: #2E3440;
 }
 
 /* .input-layout{
@@ -156,9 +156,13 @@ body {
 }
 
 #all {
-
+    
 }
 
 .font-other {
+    color: #88C0D0;
+}
+
+a {
     color: #88C0D0;
 }
