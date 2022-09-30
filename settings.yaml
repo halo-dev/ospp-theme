@@ -62,7 +62,7 @@ command:
       options:
         - value: "post"
           label: 文章
-        - value: "categories"
-          label: 分类
-        - value: "tags"
-          label: 标签
+        # - value: "categories"
+        #   label: 分类
+        # - value: "tags"
+        #   label: 标签

@@ -49,19 +49,8 @@ let mainFunc = (input, position) => {
           var out = "";
           console.log(tmp)
           if (tmp == "post") {
-            <#--  所有文章  -->
             <#list posts.content as post>
-                out += "<a href=${post.fullPath!}>${post.title!}</a>"
-            </#list>
-          } else if (tmp == "categories") {
-            <#--  分类  -->
-            <#list categories as category>
-                out += "<a href=${category.fullPath!}>${category.name!}</a>"
-            </#list>
-          } else if (tmp == "tags") {
-            <#--  标签  -->
-            <#list tags as tag>
-                out += "<a href=${tag.fullPath!}>${tag.name!}</a>"
+                out += "<a href=${post.fullPath!}>${post.title!}</a> "
             </#list>
           } else {
             alert("输入错误")
