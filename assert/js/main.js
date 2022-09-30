@@ -7,7 +7,7 @@ let isInHis = 0
 let directory = []
 let files = []
 
-let host = 'http://121.42.167.55:3007'
+let host = 'http://127.0.0.1:8090'
 
 let e_main = $('#main')
 let e_input = $('.input-text')
@@ -350,8 +350,8 @@ $(document).bind('keydown', function (b) {
   }
 })
 
+// 初始化目录和文件
 $(document).ready(() => {
-  // 初始化目录和文件
   $.ajax({
     url: host + '/list',
     data: { dir: '/' },
