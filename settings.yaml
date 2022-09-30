@@ -42,3 +42,29 @@ theme:
           label: 夜莺
         - value: custom
           label: 自定义
+
+
+command:
+  label: 命令相关
+  items:
+    help_setting:
+      name: help_setting
+      label: help显示
+      type: text
+      default: "测试版[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/><br/>Besides, there are some hidden commands, try to find them!"
+      description: '自定义help命令的输出'
+    ls_setting:
+      name: ls_setting
+      label: ls显示
+      type: select
+      default: post
+      description: '自定义ls命令的输出'
+      options:
+        - value: post
+          label: 文章
+        - value: categories
+          label: 分类
+        - value: 标签
+          label: tags
+        - value: 日志
+          label: journals

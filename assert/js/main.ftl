@@ -1,3 +1,5 @@
+<script type="text/javascript">
+
 let usrName = "username"
 let websiteName = "blogname"
 let nowPosition = '~'
@@ -42,10 +44,10 @@ let mainFunc = (input, position) => {
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'ls':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + commands + '<br/>')
+          let tmp = "${settings.help_setting!}"
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + tmp + '<br/>')
           break
         case 'ls -a':
-
           e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + commands + '<br/>')
           break
         case 'test':
@@ -254,3 +256,6 @@ $(document).ready(() => {
     }
   })
 })
+
+
+</script>
