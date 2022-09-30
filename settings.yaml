@@ -57,14 +57,12 @@ command:
       name: ls_setting
       label: ls显示
       type: select
-      default: post
+      default: "post"
       description: '自定义ls命令的输出'
       options:
-        - value: post
+        - value: "post"
           label: 文章
-        - value: categories
+        - value: "categories"
           label: 分类
-        - value: 标签
-          label: tags
-        - value: 日志
-          label: journals
+        - value: "tags"
+          label: 标签

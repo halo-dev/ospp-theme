@@ -30,7 +30,8 @@ let mainFunc = (input, position) => {
       switch (command) {
         case 'help':
           // e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + '[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/>exit<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + '测试版[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
+          var tmp = "${settings.help_setting!}"
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + tmp + '<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'hi':
@@ -44,11 +45,28 @@ let mainFunc = (input, position) => {
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'ls':
-          let tmp = "${settings.help_setting!}"
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + tmp + '<br/>')
-          break
-        case 'ls -a':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + commands + '<br/>')
+          var tmp = "${settings.ls_setting!}"
+          var out = "";
+          console.log(tmp)
+          if (tmp == "post") {
+            <#--  所有文章  -->
+            <#list posts.content as post>
+                out += "<a href=${post.fullPath!}>${post.title!}</a>"
+            </#list>
+          } else if (tmp == "categories") {
+            <#--  分类  -->
+            <#list categories as category>
+                out += "<a href=${category.fullPath!}>${category.name!}</a>"
+            </#list>
+          } else if (tmp == "tags") {
+            <#--  标签  -->
+            <#list tags as tag>
+                out += "<a href=${tag.fullPath!}>${tag.name!}</a>"
+            </#list>
+          } else {
+            alert("输入错误")
+          }
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + out + '<br/>')
           break
         case 'test':
           e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/> 666 <br/>')
