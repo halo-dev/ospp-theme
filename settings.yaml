@@ -57,7 +57,7 @@ command:
       name: ls_setting
       label: ls显示
       type: select
-      default: "post"
+      default: "menu"
       description: '自定义ls命令的输出'
       options:
         - value: "post"
