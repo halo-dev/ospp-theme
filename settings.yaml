@@ -81,7 +81,7 @@ style:
       Hi, I'm YourName. Here is my Blog. Welcome to YourBlogName!
       Try to find more information about me!<br/><br/>
       'help' to display information about builtin commands.<br/>
-      Have fun ^_^
+      Have fun ^_^<br/><br/>
       "
       description: '登录页面上面的字符'
     view_setting:
