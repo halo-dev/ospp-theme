@@ -74,7 +74,7 @@ style:
   items:
     initStr_setting:
       name: initStr_setting
-      label: help显示
+      label: 初始化界面美化
       type: text
       default: "
       [You] Random theme '/Halo/themes/Spells-Quarter-Theme' loaded...<br/><br/>
@@ -84,3 +84,9 @@ style:
       Have fun ^_^
       "
       description: '登录页面上面的字符'
+    view_setting:
+      name: view_setting
+      label: 自定义css
+      type: text
+      default: ""
+      description: '自定义css'
