@@ -45,7 +45,7 @@ body {
     font-weight: 700;
     font-size: 17px;
     color: #fff;
-    background-color: #000;
+    background-color: #2E3440;
     padding: 5px;
     margin: 0;
 }
@@ -80,11 +80,11 @@ body {
 }
 
 #usr {
-    color: rgb(193, 54, 70);
+    color: #5E81AC;
 }
 
 .host {
-    color: rgb(60, 187, 198);
+    color: #A3BE8C;
 }
 
 /* body.root-mode .input-text {
@@ -153,4 +153,12 @@ body {
     /* position:fixed; */
     height: 50px;
     /* bottom: -100px; */
+}
+
+#all {
+
+}
+
+.font-other {
+    color: #88C0D0;
 }

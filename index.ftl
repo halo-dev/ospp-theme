@@ -5,15 +5,17 @@
 <#include "common/head.ftl">
 <body>
 
-<@initTerm/>
-<@inputTerm/>
+<div id="all">
+    <@initTerm/>
+    <@inputTerm/>
 
-<#include "test.ftl">
+    <#include "test.ftl">
 
-<#include "common/footer.ftl">
-<#include "common/js.ftl">
+    <#include "common/footer.ftl">
+    <#include "common/js.ftl">
+</div>
+
 </body>
 </html>
-
 
 

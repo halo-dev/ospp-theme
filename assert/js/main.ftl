@@ -1,7 +1,9 @@
+<script src="${theme_base!}/assert/js/jquery-3.3.1.min.js"></script>
+
 <script type="text/javascript">
 
-let usrName = "username"
-let websiteName = "blogname"
+let usrName = "${user.nickname!}"
+let websiteName = "${blog_title!}"
 let nowPosition = '~'
 let commandList = 'cd ls cat logout hey hi hello help clear exit test ~ / ./'.split(' ')
 let hisCommand = []
@@ -19,25 +21,26 @@ let e_pos = $('#pos')
 
 let mainFunc = (input, position) => {
   if (input === '') {
+    e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + '<br/>')
     e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + '<br/>')
     e_html.animate({ scrollTop: $(document).height() }, 0)
   } else {
     command = input.split(' ')[0]
     if (commandList.indexOf(command) === -1) {
-      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + 'zsh: command not found: ' + command + '<br/>')
+      e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + 'zsh: command not found: ' + command + '<br/>')
       e_html.animate({ scrollTop: $(document).height() }, 0)
     } else {
       switch (command) {
         case 'help':
           // e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + '[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/>exit<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
           var tmp = "${settings.help_setting!}"
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + tmp + '<br/>')
+          e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + tmp + '<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'hi':
         case 'hey':
         case 'hello':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>todo 设置<br/>')
+          e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + todo 设置 + '<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'clear':
@@ -65,10 +68,10 @@ let mainFunc = (input, position) => {
           } else {
             alert("输入错误")
           }
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + out + '<br/>')
+          e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + out + '<br/>')
           break
         case 'test':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/> 666 <br/>')
+          e_main.html($('#main').html() + '<span class="font-other">[</span>' + '<span id="usr">' + usrName + '</span>' + '<span class="font-other">@</span>' + '<span class="host">' + websiteName + '</span> ' + '<span class="font-other">' + position + '</span>' + '<span class="font-other">]% </span>' + input + '<br/>' + '666' + '<br/>')
           window.location.href='http://baidu.com';
           // e_html.animate({ scrollTop: $(document).height() }, 0)
           // let webviewUrl = 'https://www.baidu.com';
