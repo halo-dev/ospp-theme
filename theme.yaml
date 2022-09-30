@@ -8,4 +8,4 @@ logo: null
 website: https://github.com/halo-dev/ospp-theme
 repo: https://github.com/halo-dev/ospp-theme
 version: 0.0.1
-require: 1.5.0
+require: 1.5.3
