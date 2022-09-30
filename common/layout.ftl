@@ -1,7 +1,7 @@
 
 <#macro initTerm>
     <div id="main">
-        Last login:
+        Last login: ${user.expireTime!}
         <#--  todo  ${time} -->
         <br/>
         [You] Random theme '/Halo/themes/Spells-Quarter-Theme' loaded...
@@ -18,8 +18,10 @@
 </#macro>
 
 <#macro inputTerm>
-    <span class="prefix">[<span id='usr'>${blog_url!}</span>@<span class="host">${blog_title!}</span> <span id="pos">~</span>]% </span>
+<div class="input-layout">
+    <span class="prefix">[<span id='usr'>${user.nickname!}</span>@<span class="host">${blog_title!}</span> <span id="pos">~</span>]% </span>
     <input type="text" class="input-text">
+</div>
 </#macro>
 
 

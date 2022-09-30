@@ -1,4 +1,5 @@
-let usrName = 'usr'
+let usrName = "问题1"
+let websiteName = "问题2"
 let nowPosition = '~'
 let commandList = 'cd ls cat logout hey hi hello help clear exit ~ / ./'.split(' ')
 let hisCommand = []
@@ -16,175 +17,30 @@ let e_pos = $('#pos')
 
 let mainFunc = (input, position) => {
   if (input === '') {
-    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + '<br/>')
+    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + '<br/>')
     e_html.animate({ scrollTop: $(document).height() }, 0)
   } else {
     command = input.split(' ')[0]
     if (commandList.indexOf(command) === -1) {
-      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + 'zsh: command not found: ' + command + '<br/>')
+      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + 'zsh: command not found: ' + command + '<br/>')
       e_html.animate({ scrollTop: $(document).height() }, 0)
     } else {
       switch (command) {
         case 'help':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + '[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/>exit<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
+          // e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + '[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/>exit<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + '测试版[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
-          break
-        case 'exit':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>(๑˘̴͈́꒵˘̴͈̀)۶ˮ вyё вyё~<br/>')
-          e_html.animate({ scrollTop: $(document).height() }, 0)
-          window.open("http://ursb.me")
           break
         case 'hi':
         case 'hey':
         case 'hello':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>Nice to Meet U : )<br/>')
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>todo 设置<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'clear':
           e_main.html('')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
-        case 'ls':
-          // dir: /dir/
-          $.ajax({
-            url: host + '/ls',
-            data: { dir: position.replace('~', '') + '/' },
-            dataType: 'jsonp',
-            success: (res) => {
-              if (res.code === 0) {
-                let data = res.data.map(i => {
-                  if (!i.includes('.')) {
-                    // 目录
-                    i = `<span class="ls-dir">${i}</span>`
-                  }
-                  return i
-                })
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + data.join('&nbsp;&nbsp;') + '<br/>')
-                e_html.animate({ scrollTop: $(document).height() }, 0)
-              }
-            }
-          })
-          break
-        case 'cat':
-          file = input.split(' ')[1]
-          $.ajax({
-            url: host + '/cat',
-            data: { filename: file, dir: position.replace('~', '') + '/' },
-            dataType: 'jsonp',
-            success: (res) => {
-              if (res.code === 0) {
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.data.replace(/\n/g, '<br/>') + '<br/>')
-                e_html.animate({ scrollTop: $(document).height() }, 0)
-              } else if (res.code === 404) {
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
-                e_html.animate({ scrollTop: $(document).height() }, 0)
-              }
-            }
-          })
-          break
-        case 'cd':
-          // nowPosition: ~/dir/dir
-          if (!input.split(' ')[1] || input.split(' ')[1] === '~' || input.split(' ')[1] === '~/') {
-            // 回退到主目录：cd || cd ~ || cd ~/
-            nowPosition = '~'
-            e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
-            e_html.animate({ scrollTop: $(document).height() }, 0)
-            e_pos.html(nowPosition)
-          } else {
-            // 切换到其他目录
-            if (nowPosition === '~') {
-              // 用户在主目录：cd ~/dir || cd ./dir || cd dir
-              dir = input.split(' ')[1].replace('./', '').replace('~/', '') + '/'
-              $.ajax({
-                url: host + '/cd',
-                data: { dir, pos: nowPosition.replace('~', '') + '/' },
-                dataType: 'jsonp',
-                success: (res) => {
-                  if (res.code === 0) {
-                    nowPosition = '~/' + dir.substring(0, dir.length - 1)
-                    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
-                    e_html.animate({ scrollTop: $(document).height() }, 0)
-                    e_pos.html(nowPosition)
-                  } else if (res.code === 404) {
-                    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
-                    e_html.animate({ scrollTop: $(document).height() }, 0)
-                  }
-                }
-              })
-            } else {
-              // 用户在二级目录：cd .. || cd ../ || cd ../dir || cd dir || cd ./dir
-              dir = input.split(' ')[1].replace(/\.\.\//g, '')
-
-              let backCount = 0 // 回退层级
-              if (dir === '' || dir === '..') {
-                // 情境一：回退到上一级：cd .. || cd ../
-                if (dir === '..') {
-                  backCount = 1
-                } else {
-                  // 回退多级：cd ../../
-                  backCount = input.split(' ')[1].match(/\.\.\//g) && input.split(' ')[1].match(/\.\.\//g).length || 0
-                }
-                let pos = nowPosition.split('/') // [~, blog, img]
-                nowPosition = pos.slice(0, pos.length - backCount) // [~, blog]
-                nowPosition = nowPosition.join('/') // ~/blog
-
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
-                e_html.animate({ scrollTop: $(document).height() }, 0)
-                e_pos.html(nowPosition)
-              } else {
-                // 情境二：切换到绝对路径的其他层级：cd ~/dir
-                if (dir.startsWith('~/')) {
-                  dir = input.split(' ')[1].replace('~/', '') + '/'
-                  $.ajax({
-                    url: host + '/cd',
-                    data: { dir, pos: '/' },
-                    dataType: 'jsonp',
-                    success: (res) => {
-                      if (res.code === 0) {
-                        nowPosition = '~/' + dir.substring(0, dir.length - 1)
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
-                        e_html.animate({ scrollTop: $(document).height() }, 0)
-                        e_pos.html(nowPosition)
-                      } else if (res.code === 404) {
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
-                        e_html.animate({ scrollTop: $(document).height() }, 0)
-                      }
-                    }
-                  })
-                } else {
-                  // 情境三：切换为相对路径的其他层级：cd dir || cd ./dir || cd ../dir
-                  // pos: /dir/
-                  let pos = '/' + nowPosition.replace('~/', '') + '/'
-                  let backCount = input.split(' ')[1].match(/\.\.\//g) && input.split(' ')[1].match(/\.\.\//g).length || 0
-
-                  pos = nowPosition.split('/') // [~, blog, img]
-                  nowPosition = pos.slice(0, pos.length - backCount) // [~, blog]
-                  nowPosition = nowPosition.join('/') // ~/blog
-
-                  pos = '/' + nowPosition.replace('~', '').replace('/', '')  + '/'
-                  dir = dir + '/'
-                  dir = dir.startsWith('./') && dir.substring(1) || dir // 适配：cd ./dir
-                  $.ajax({
-                    url: host + '/cd',
-                    data: { dir, pos },
-                    dataType: 'jsonp',
-                    success: (res) => {
-                      if (res.code === 0) {
-                        nowPosition = '~' + pos + dir.substring(0, dir.length - 1) // ~/blog/img
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
-                        e_html.animate({ scrollTop: $(document).height() }, 0)
-                        e_pos.html(nowPosition)
-                      } else if (res.code === 404) {
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
-                        e_html.animate({ scrollTop: $(document).height() }, 0)
-                      }
-                    }
-                  })
-                }
-              }
-            }
-          }
-          break;
       }
     }
   }
@@ -328,6 +184,7 @@ $(document).bind('keydown', function (b) {
   if (b.keyCode === 13) {
     e_main.html($('#main').html())
     e_html.animate({ scrollTop: $(document).height() }, 0)
+    // e_html.animate({ scrollTop: $(document).height() }, "slow")
     mainFunc(e_input.val(), nowPosition)
     hisCommand.push(e_input.val())
     isInHis = 0
@@ -350,7 +207,23 @@ $(document).bind('keydown', function (b) {
   }
 })
 
-// 初始化目录和文件
+// $(document).keypress(function(e) {
+//   var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+//     if (eCode == 13){
+//       alert('您按了回车键')
+//       //自己写判断操作
+//     } else if (eCode == 9) {
+//       alert("Tab")
+//     } else if (eCode == 38) {
+//       alert("上")
+//     } else if (eCode == 40) {
+//       alert("下")
+//     } else if (eCode == 81) {
+//       alert("Q")
+//     }
+// });
+
+// 页面加载完成后执行,初始化目录和文件
 $(document).ready(() => {
   $.ajax({
     url: host + '/list',
