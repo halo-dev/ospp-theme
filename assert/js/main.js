@@ -1,7 +1,7 @@
 let usrName = "username"
 let websiteName = "blogname"
 let nowPosition = '~'
-let commandList = 'cd ls cat logout hey hi hello help clear exit ~ / ./'.split(' ')
+let commandList = 'cd ls cat logout hey hi hello help clear exit test ~ / ./'.split(' ')
 let hisCommand = []
 let cour = 0
 let isInHis = 0
@@ -41,113 +41,128 @@ let mainFunc = (input, position) => {
           e_main.html('')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
+        case 'ls':
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + commands + '<br/>')
+          break
+        case 'ls -a':
+
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/>' + commands + '<br/>')
+          break
+        case 'test':
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">' + websiteName + '</span> ' + position + ']% ' + input + '<br/> 666 <br/>')
+          window.location.href='http://baidu.com';
+          // e_html.animate({ scrollTop: $(document).height() }, 0)
+          // let webviewUrl = 'https://www.baidu.com';
+          // let windowObjectReference = window.open();
+          windowObjectReference.location.href = webviewUrl;
+          break
       }
     }
   }
 }
 
 // 命令自动补全
-let pressTab = (input) => {
-  if (input !== '') {
-    command = input.split(' ')[0]
-    if (command === 'l') e_input.val('ls')
-    if (command === 'c') {
-      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + nowPosition + ']% ' + input + '<br/>cat&nbsp;&nbsp;cd&nbsp;&nbsp;claer<br/>')
-    }
+// let pressTab = (input) => {
+//   if (input !== '') {
+//     command = input.split(' ')[0]
+//     if (command === 'l') e_input.val('ls')
+//     if (command === 'c') {
+//       e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + nowPosition + ']% ' + input + '<br/>cat&nbsp;&nbsp;cd&nbsp;&nbsp;claer<br/>')
+//     }
 
-    if (command === 'ca') e_input.val('cat')
-    if (command === 'cl' || command === 'cle' || command === 'clea') e_input.val('clea')
+//     if (command === 'ca') e_input.val('cat')
+//     if (command === 'cl' || command === 'cle' || command === 'clea') e_input.val('clea')
 
-    // cd 命令自动补全：只适配目录
-    if (input.split(' ')[1] && command === 'cd') {
-      dir = input.split(' ')[1]
-      let prefix = ''
-      if (nowPosition === '~') {
-        // 用户在主目录
-        if (dir.startsWith('./')) {
-          prefix = './'
-          dir = dir.replace('./', '')
-        }
-        if (dir.startsWith('~/')) {
-          prefix = '~/'
-          dir = dir.replace('~/', '')
-        }
+//     // cd 命令自动补全：只适配目录
+//     if (input.split(' ')[1] && command === 'cd') {
+//       dir = input.split(' ')[1]
+//       let prefix = ''
+//       if (nowPosition === '~') {
+//         // 用户在主目录
+//         if (dir.startsWith('./')) {
+//           prefix = './'
+//           dir = dir.replace('./', '')
+//         }
+//         if (dir.startsWith('~/')) {
+//           prefix = '~/'
+//           dir = dir.replace('~/', '')
+//         }
 
-        // 路径最短匹配
-        directory.every(i => {
-          if (i.startsWith(dir)) {
-            e_input.val('cd ' + prefix + i)
-            return false
-          }
-          return true
-        })
-      } else {
-        // 用户在二级目录或更深层目录
-        let pos = nowPosition.replace('~/', '') + '/'
+//         // 路径最短匹配
+//         directory.every(i => {
+//           if (i.startsWith(dir)) {
+//             e_input.val('cd ' + prefix + i)
+//             return false
+//           }
+//           return true
+//         })
+//       } else {
+//         // 用户在二级目录或更深层目录
+//         let pos = nowPosition.replace('~/', '') + '/'
 
-        if (dir.startsWith('~/')) {
-          prefix = '~/'
-          dir = dir.replace('~/', '')
+//         if (dir.startsWith('~/')) {
+//           prefix = '~/'
+//           dir = dir.replace('~/', '')
 
-          // 路径最短匹配
-          directory.every(i => {
-            if (i.startsWith(dir)) {
-              e_input.val('cd ' + prefix + i)
-              return false
-            }
-            return true
-          })
-        } else {
-          if (dir.startsWith('./')) {
-            prefix = './'
-            dir = dir.replace('./', '')
-          }
+//           // 路径最短匹配
+//           directory.every(i => {
+//             if (i.startsWith(dir)) {
+//               e_input.val('cd ' + prefix + i)
+//               return false
+//             }
+//             return true
+//           })
+//         } else {
+//           if (dir.startsWith('./')) {
+//             prefix = './'
+//             dir = dir.replace('./', '')
+//           }
 
-          // 路径最短匹配
-          directory.every(i => {
-            if (i.startsWith(pos + dir)) {
-              i = i.replace(pos, '')
-              e_input.val('cd ' + prefix + i)
-              return false
-            }
-            return true
-          })
-        }
-      }
-    }
+//           // 路径最短匹配
+//           directory.every(i => {
+//             if (i.startsWith(pos + dir)) {
+//               i = i.replace(pos, '')
+//               e_input.val('cd ' + prefix + i)
+//               return false
+//             }
+//             return true
+//           })
+//         }
+//       }
+//     }
 
-    // cat 命令自动补全：只适配文件
-    if (input.split(' ')[1] && command === 'cat') {
-      file = input.split(' ')[1]
-      let pos = nowPosition.replace('~', '').replace('/', '') // 去除主目录的 ~ 和其他目录的 ~/ 前缀
-      let prefix = ''
+//     // cat 命令自动补全：只适配文件
+//     if (input.split(' ')[1] && command === 'cat') {
+//       file = input.split(' ')[1]
+//       let pos = nowPosition.replace('~', '').replace('/', '') // 去除主目录的 ~ 和其他目录的 ~/ 前缀
+//       let prefix = ''
 
-      if (file.startsWith('./')) {
-        prefix = './'
-        file = file.replace('./', '')
-      }
+//       if (file.startsWith('./')) {
+//         prefix = './'
+//         file = file.replace('./', '')
+//       }
 
-      if (nowPosition === '~') {
-        files.every(i => {
-          if (i.startsWith(pos + file)) {
-            e_input.val('cat ' + prefix + i)
-            return false
-          }
-          return true
-        })
-      } else {
-        pos = pos + '/'
-        files.every(i => {
-          if (i.startsWith(pos + file)) {
-            e_input.val('cat ' + prefix + i.replace(pos, ''))
-            return false
-          }
-          return true
-        })
-      }
-    }
-  }
-}
+//       if (nowPosition === '~') {
+//         files.every(i => {
+//           if (i.startsWith(pos + file)) {
+//             e_input.val('cat ' + prefix + i)
+//             return false
+//           }
+//           return true
+//         })
+//       } else {
+//         pos = pos + '/'
+//         files.every(i => {
+//           if (i.startsWith(pos + file)) {
+//             e_input.val('cat ' + prefix + i.replace(pos, ''))
+//             return false
+//           }
+//           return true
+//         })
+//       }
+//     }
+//   }
+// }
 
 window.onresize = function () {
   e_input.width($(document).width() - $('.prefix').width() - 160)

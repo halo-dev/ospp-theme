@@ -8,7 +8,7 @@
 <@initTerm/>
 <@inputTerm/>
 
-
+<#include "test.ftl">
 
 <#include "common/footer.ftl">
 <#include "common/js.ftl">
