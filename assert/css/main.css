@@ -139,6 +139,8 @@ body {
     /* float: left; */
     position:fixed;
     bottom: 0px;
+    opacity: 1.0;
+    background-color: #000;
 }
 
 /* .input-layout{
