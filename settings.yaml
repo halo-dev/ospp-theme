@@ -80,7 +80,7 @@ style:
       [You] Random theme '/Halo/themes/Spells-Quarter-Theme' loaded...<br/><br/>
       Hi, I'm YourName. Here is my Blog. Welcome to YourBlogName!
       Try to find more information about me!<br/><br/>
-      'help' to display information about builtin commands.
+      'help' to display information about builtin commands.<br/>
       Have fun ^_^
       "
       description: '登录页面上面的字符'

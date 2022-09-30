@@ -93,7 +93,8 @@ body {
 
 #main {
     line-height: 23px;
-    word-wrap: break-word
+    word-wrap: break-word;
+    width: 100%;
 }
 
 /* body.root-mode #main {
@@ -164,5 +165,5 @@ body {
 }
 
 a {
-    color: #88C0D0;
+    color: #EBCB8B;
 }
