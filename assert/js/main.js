@@ -1,5 +1,5 @@
-let usrName = "问题1"
-let websiteName = "问题2"
+let usrName = "username"
+let websiteName = "blogname"
 let nowPosition = '~'
 let commandList = 'cd ls cat logout hey hi hello help clear exit ~ / ./'.split(' ')
 let hisCommand = []
