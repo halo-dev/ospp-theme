@@ -68,7 +68,9 @@ nbdist/
 ### Local file
 application-local.yml
 application-local.yaml
+
 application-local.properties
 
 ### Other ###
 node_modules
+
