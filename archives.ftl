@@ -6,7 +6,7 @@
 <#include "common/head.ftl">
 <body>
 
-<h1>所有文章</h1>
+<h1>文章归档</h1>
 
 <br/>
 
