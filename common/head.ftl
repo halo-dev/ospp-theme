@@ -1,12 +1,6 @@
-<#macro head title>
 <head>
     <meta charset="UTF-8">
-    <!-- Import style -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css"/>
-    <!-- Import Vue 3 -->
-    <script src="//cdn.jsdelivr.net/npm/vue@3"></script>
-    <!-- Import component library -->
-    <script src="//cdn.jsdelivr.net/npm/element-plus"></script>
-    <#--  <@global.head />  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="${theme_base!}/assert/css/main.css" rel="stylesheet"/>
+    <title>${blog_title!}</title>
 </head>
-</#macro>
